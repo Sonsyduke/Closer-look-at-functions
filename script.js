@@ -31,30 +31,42 @@
 
 // ===================
 // VALUES VS REFERENCE
-const flight = 'LH234';
-const douglas = {
-  name: 'Douglas Lombard',
-  passport: 234563472621,
-};
+// const flight = 'LH234';
+// const douglas = {
+//   name: 'Douglas Lombard',
+//   passport: 234563472621,
+// };
 
-function checkIn(flightNum, passenger) {
-  flightNum = 'LH999';
-  passenger.name = `Mr. ${passenger.name}`;
+// function checkIn(flightNum, passenger) {
+//   flightNum = 'LH999';
+//   passenger.name = `Mr. ${passenger.name}`;
 
-  if (passenger.passport === 234563472621) {
-    alert('Checked in');
-  } else {
-    alert('Wrong passport');
-  }
-}
+//   if (passenger.passport === 234563472621) {
+//     alert('Checked in');
+//   } else {
+//     alert('Wrong passport');
+//   }
+// }
 
 // checkIn(flight, douglas);
 // console.log(flight);
 // console.log(douglas);
 
-function newPassport(person) {
-  person.passport = Math.trunc(Math.random() * 10000000000);
-}
+// function newPassport(person) {
+//   person.passport = Math.trunc(Math.random() * 10000000000);
+// }
 
-newPassport(douglas);
-checkIn(flight, douglas);
+// newPassport(douglas);
+// checkIn(flight, douglas);
+
+// ===================
+// FIRST-CLASS AND HIGHER-ORDER FUNCTIONS
+
+// FIRST-CLASS
+// JS treats function as first-class citizens
+// This means functions are simple values
+// Functions are just another type of object
+
+// HIGHER-ORDER
+// a function receives another function as a argument and then returns a new function
+// This is only possible because of first-class functions
