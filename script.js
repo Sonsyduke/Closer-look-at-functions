@@ -260,9 +260,6 @@ const poll = {
   // This generates [0, 0, 0, 0]. More in the next section!
   answers: new Array(4).fill(0),
   registerNewAnswer() {
-    // for (let i = 0; i < this.options.length; i++) {
-    //   console.log(`${this.options[i]}`);
-    // }
     const answer = Number(
       prompt(`${this.question} 
     ${this.options[0]}
@@ -274,13 +271,13 @@ const poll = {
     if (typeof answer === 'number' && answer < 4) {
       this.answers[answer]++;
     }
+    this.displayResults();
     this.displayResults('string');
   },
   displayResults(type = 'array') {
     if (type === 'array') {
       console.log(this.answers);
     } else if (type === 'string') {
-      // const answersString =
       console.log(`Poll results are ${this.answers}`);
     }
   },
@@ -288,3 +285,9 @@ const poll = {
 
 // poll.registerNewAnswer.bind();
 pollBtn.addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+
+// [5, 2, 3]
+// [1, 5, 3, 9, 6, 1]
