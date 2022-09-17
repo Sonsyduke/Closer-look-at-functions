@@ -253,41 +253,85 @@
 // ===================
 // CODING CHALLENGE
 
-const pollBtn = document.querySelector('.poll');
-const poll = {
-  question: 'What is your favourite programming language?',
-  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
-  // This generates [0, 0, 0, 0]. More in the next section!
-  answers: new Array(4).fill(0),
-  registerNewAnswer() {
-    const answer = Number(
-      prompt(`${this.question} 
-    ${this.options[0]}
-    ${this.options[1]}
-    ${this.options[2]}
-    ${this.options[3]}
-    (Write option number)`)
-    );
-    if (typeof answer === 'number' && answer < 4) {
-      this.answers[answer]++;
-    }
-    this.displayResults();
-    this.displayResults('string');
-  },
-  displayResults(type = 'array') {
-    if (type === 'array') {
-      console.log(this.answers);
-    } else if (type === 'string') {
-      console.log(`Poll results are ${this.answers}`);
-    }
-  },
-};
+// const pollBtn = document.querySelector('.poll');
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+//   // This generates [0, 0, 0, 0]. More in the next section!
+//   answers: new Array(4).fill(0),
+//   registerNewAnswer() {
+//     const answer = Number(
+//       prompt(`${this.question}
+//     ${this.options[0]}
+//     ${this.options[1]}
+//     ${this.options[2]}
+//     ${this.options[3]}
+//     (Write option number)`)
+//     );
+//     if (typeof answer === 'number' && answer < 4) {
+//       this.answers[answer]++;
+//     }
+//     this.displayResults();
+//     this.displayResults('string');
+//   },
+//   displayResults(type = 'array') {
+//     if (type === 'array') {
+//       console.log(this.answers);
+//     } else if (type === 'string') {
+//       console.log(`Poll results are ${this.answers}`);
+//     }
+//   },
+// };
 
 // poll.registerNewAnswer.bind();
-pollBtn.addEventListener('click', poll.registerNewAnswer.bind(poll));
+// pollBtn.addEventListener('click', poll.registerNewAnswer.bind(poll));
 
-poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
-poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+// poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+// poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
 
-// [5, 2, 3]
-// [1, 5, 3, 9, 6, 1]
+// END OF CODING CHALLENGE 1
+// ===================
+
+// ===================
+// IMMEDIATELY INVOKED FUNCTION EXPRESSION (IIFE)
+// function runOnce() {
+//   console.log('This will never run again');
+//   const isPrivate = 23;
+// }
+
+// (function () {
+//   console.log('This will never run again');
+// })();
+
+// (() => console.log('This will never run again'))();
+
+// {
+//   const isPrivate = 25;
+//   var notPrivate = 26;
+// }
+
+// console.log(isPrivate);
+// console.log(notPrivate);
+
+// END OF IIFE
+// ===================
+
+// ===================
+// CLOSURES
+
+function secureBooking() {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+}
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
